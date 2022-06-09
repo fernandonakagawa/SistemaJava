@@ -68,6 +68,7 @@ public class ControladorBDNew {
                 throw new SQLException ();
             }
         }catch(SQLException e){
+            System.out.println(e.getCause().toString() + e.getErrorCode() + e.getSQLState() + e.getMessage());
             e.printStackTrace();
             flag = false;
         }finally{
@@ -76,6 +77,7 @@ public class ControladorBDNew {
                 if(st != null){st.close();}
                 if(con != null){ con.close();}
             }catch(SQLException e){
+                System.out.println(e.getCause().toString() + e.getErrorCode() + e.getSQLState() + e.getMessage());
                 e.printStackTrace();
                 return false;
             }
